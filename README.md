@@ -1,5 +1,6 @@
 # easy_qq_countdown
 a countdown base on php
+It is very easy to with the qqbot or dingtalkbot just curl/request/get
 
 # there could get the text without html
 getonlytext.php?group=id

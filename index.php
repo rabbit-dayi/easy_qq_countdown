@@ -43,10 +43,7 @@
 
 
 <?php
-
   include "./config/serverinfo.php";
-  $dbname=$database;
-  
   // 创建连接
   $conn = new mysqli($servername, $username, $password);
   // 检测连接
@@ -77,6 +74,7 @@
     `isfinished` INT NULL DEFAULT 0,
     `iscountdown` INT NULL DEFAULT 0,
     `priority` INT NULL DEFAULT 1,
+    `the_group_only` INT NULL DEFAULT 0,
     `groupid` INT NULL DEFAULT -1,
     `start_time_see` DATETIME NULL DEFAULT NULL, 
     `end_time_see` DATETIME NULL DEFAULT NULL, 
@@ -100,7 +98,7 @@
 
   //尝试插入数据
   // $sql="INSERT INTO `events` (`id`, `event`, `start_time`, `end_time`) 
-  //       VALUES (NULL, '', '1637985422', '1638085422')";
+  //       VALUES (NULL, '心理', '1637985422', '1638085422')";
   // if (mysqli_query($conn, $sql)) {
   //   echo "新记录插入成功";
   // } else {

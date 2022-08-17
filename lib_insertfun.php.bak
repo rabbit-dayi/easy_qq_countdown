@@ -1,29 +1,12 @@
 <?php
-  //https://gugugu.dayiyi.top/insert.php?event=owoowo&start=1234&end=2345
-  include "serverinfo.php";
-  // if(isset($_GET['dayi_token'])){
-  //   if($_GET['dayi_token']==$auth_key)echo "owo";
-  //   else exit(0);
-  //   echo $_GET['token'];
-  // }
-  // else exit(0);
-?>
-<?php
-  include "serverinfo.php";
-  $group=-1;
-  $iscountdown=0;
-  
-  
-  if(isset($_GET['event'])==0) {echo "错误，事件信息未定义。\n<br>";exit(0);}
-  if(isset($_GET['start'])==0) {echo "错误，开始时间未定义。\n<br>";exit(0);}
-  if(isset($_GET['end'])==0) {echo "错误，截止时间未定义。\n<br>";exit(0);}
+function insert($event,$start,$end,$group,$iscountdown){
+  include "./serverinfo.php";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  if ($conn->connect_error) {
+      die("连接失败: " . $conn->connect_error);
+  }
 
-  if(isset($_GET['event']))$event=$_GET['event'];
-  if(isset($_GET['start']))$start=$_GET['start'];
-  if(isset($_GET['end']))$end=$_GET['end'];
-  if(isset($_GET['group']))$group=$_GET['group'];
-  if(isset($_GET['iscountdown']))$iscountdown=$_GET['iscountdown'];
-  
+
   echo"---------------------"."<br>\n";
   echo "event:".$event."<br>\n";
   echo "start:".$start."<br>\n";
@@ -31,8 +14,6 @@
   echo "group:".$group."<br>\n";
   echo "iscountdown:".$iscountdown."<br>\n";
   echo"---------------------"."<br>\n";
-
-
   try{
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -61,6 +42,6 @@
   catch(PDOException $e){
     echo "错误:" . $e->getMessage();
   }
+}
   
-
 ?>

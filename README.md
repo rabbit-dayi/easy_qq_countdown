@@ -11,7 +11,7 @@ getonlytext.php?group=id
 
 # It works like this
 ```
----咕咕咕倒计时---by.dayi beta0.031
+---咕咕咕倒计时---by.dayi beta0.048
 当前信息已经重定向到:【全局群组】
 1.等待心理课布置论文（课下） 剩余:0d10h31m59s
 2.安全教育学习第二阶段 剩余:2.015d
